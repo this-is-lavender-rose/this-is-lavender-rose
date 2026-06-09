@@ -1,0 +1,164 @@
+/* Import a Pirate-style font for headers and a clean font for text */
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&family=Roboto:wght@400;700&display=swap');
+
+/* --- GLOBAL STYLES --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    /* A deep ocean gradient background */
+    background: radial-gradient(circle at center, #1a2a6c 0%, #0a0f24 80%);
+    color: #eee;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* --- LOGIN PAGE (WANTED POSTER VIBE) --- */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: #e8dcb8; /* Old parchment paper color */
+    background-image: url('https://www.transparenttextures.com/patterns/parchment.png');
+    padding: 3rem 2rem;
+    border: 10px solid #3e2723; /* Dark wood border */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.9);
+    border-radius: 4px;
+    width: 320px;
+    margin-top: 10vh;
+}
+
+.anime-title {
+    font-family: 'Pirata One', cursive;
+    font-size: 3.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #8b0000; /* Crimson red */
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+.input-group {
+    margin: 1.2rem 0;
+}
+
+input {
+    padding: 12px;
+    width: 85%;
+    border: 2px solid #3e2723;
+    background: rgba(255, 255, 255, 0.5);
+    color: #3e2723;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
+}
+
+input::placeholder {
+    color: #795548;
+}
+
+.error-text {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-top: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px;
+    border-radius: 3px;
+}
+
+/* --- BUTTONS --- */
+.anime-btn, .anime-btn-small {
+    background-color: #8b0000;
+    color: gold;
+    font-family: 'Pirata One', cursive;
+    font-size: 1.8rem;
+    padding: 10px 40px;
+    border: 2px solid gold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.anime-btn-small {
+    font-size: 1.2rem;
+    padding: 5px 20px;
+}
+
+.anime-btn:hover, .anime-btn-small:hover {
+    background-color: gold;
+    color: #8b0000;
+    box-shadow: 0 0 20px gold;
+    transform: translateY(-3px); /* Makes the button "lift" on hover */
+}
+
+/* --- HOME PORTAL --- */
+.home-body {
+    background: radial-gradient(circle at center, #2b0f0f 0%, #0a0a0a 100%); /* Conqueror's Haki red/black */
+}
+
+.anime-nav {
+    background: rgba(0,0,0,0.8);
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid gold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+.anime-nav h2 {
+    font-family: 'Pirata One', cursive;
+    color: gold;
+    font-size: 2.5rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    background: rgba(20, 20, 20, 0.8);
+    padding: 4rem 2rem;
+    border: 2px solid #8b0000;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Pirata One', cursive;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,215,0,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.grid-item:hover {
+    border-color: gold;
+    color: gold;
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+}
+
+.grid-item:hover::before {
+    left: 100%; /* Shiny sweep effect on hover */
+}
