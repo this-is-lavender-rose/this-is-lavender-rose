@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitment | Vault</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        if (sessionStorage.getItem("isAuthenticated") !== "true") window.location.href = "index.html";
+    </script>
+</head>
+<body class="home-body">
+    <nav class="anime-nav">
+        <h2>Recruitment</h2>
+        <a href="home.html" class="anime-btn-small" style="text-decoration:none;">Back to Deck</a>
+    </nav>
+
+    <div class="login-container" style="width: 90%; max-width: 500px; margin: 4rem auto; margin-top: 4rem;">
+        <h1 class="anime-title" style="font-size: 2.5rem;">Luffy is miserably sorry</h1>
+        
+        <form id="recruitment-form" style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+            
+            <label style="color: #3e2723; font-weight: bold; font-size: 1.3rem; text-align: center;">
+                Even a captain knows when they've sailed off course... Can we still be Nakama?
+            </label>
+            
+            <!-- This paragraph will display the pleading messages -->
+            <p id="plea-message" style="color: #d32f2f; font-weight: bold; font-size: 1.1rem; margin: 0; text-align: center; min-height: 25px;"></p>
+            
+            <div style="display: flex; gap: 20px;">
+                <label style="color: #3e2723; font-weight: bold; font-size: 1.2rem; cursor: pointer;">
+                    <input type="radio" name="join" value="yes" id="radio-yes" required style="width: auto;"> Yes
+                </label>
+                <!-- We wrap 'No' in a span so we can easily hide it later -->
+                <span id="no-container">
+                    <label style="color: #3e2723; font-weight: bold; font-size: 1.2rem; cursor: pointer;">
+                        <input type="radio" name="join" value="no" id="radio-no" style="width: auto;"> No
+                    </label>
+                </span>
+            </div>
+            
+            <button type="submit" class="anime-btn">Sign the Pact</button>
+        </form>
+    </div>
+
+    <script>
+        let noAttempts = 0;
+        const form = document.getElementById('recruitment-form');
+        const pleaMessage = document.getElementById('plea-message');
+        const noContainer = document.getElementById('no-container');
+        const radioYes = document.getElementById('radio-yes');
+        const radioNo = document.getElementById('radio-no');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the page from reloading
+
+            if (radioYes.checked) {
+                alert("Welcome to the crew. Brave the New World with me!");
+                // You could redirect them somewhere here if you wanted!
+            } else if (radioNo.checked) {
+                noAttempts++;
+                
+                if (noAttempts === 1) {
+                    pleaMessage.textContent = "Are you sure? The sea is calling! Please select Yes!";
+                } else if (noAttempts === 2) {
+                    pleaMessage.textContent = "Come on! Don't be boring! Join me!";
+                } else if (noAttempts === 3) {
+                    pleaMessage.textContent = "I'm begging you! We have meat! Just say Yes!";
+                } else if (noAttempts >= 4) {
+                    alert("Actually, 'No' is not an option anymore!");
+                    noContainer.style.display = 'none'; // Hide the 'No' option entirely
+                    pleaMessage.textContent = "You have no choice now. Sign the pact.";
+                    radioYes.checked = true; // Force 'Yes' to be checked
+                }
+                
+                // Uncheck 'No' to force them to click again
+                if (noAttempts < 4) {
+                    radioNo.checked = false; 
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Media Vault</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Quick check to see if they logged in via index.html
+        if (sessionStorage.getItem("isAuthenticated") !== "true") {
+            window.location.href = "index.html";
+        }
+    </script>
+</head>
+<body class="home-body">
+    <nav class="anime-nav">
+        <h2>My Vault</h2>
+        <button onclick="logout()" class="anime-btn-small">Sign Out</button>
+    </nav>
+
+    <div class="grid-container">
+        <a href="photos.html" class="grid-item">Image Gallery</a>
+        <a href="audio.html" class="grid-item">Audio Tracks</a>
+        <a href="articles.html" class="grid-item">Scrolls (Articles)</a>
+        <a href="survey.html" class="grid-item">The Form</a>
+    </div>
+
+    <script>
+        function logout() {
+            sessionStorage.removeItem("isAuthenticated");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
